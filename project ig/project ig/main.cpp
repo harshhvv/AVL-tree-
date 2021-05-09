@@ -64,6 +64,7 @@ void normalViewAll(){
         ptr = ptr->next;
     }
     printf(" End of entries");
+    std::cout<<std::endl;
 }
 
 void adminInsert(employe x){
@@ -395,36 +396,7 @@ void adminEditName(int empId, std::string name){
     adminSearch(empId);
 }
 
-void swap(employe *a, employe *b){
-    employe temp = *a;
-    *a = *b;
-    *b = temp;
-}
 
-//function to form partitions of array
-int partition (employe arr[], int low, int high){
-    //low is the starting index. high is the ending index
-    int pivot = arr[high].emp_id; //setting value of pivot = last element of the array
-    int i = low - 1;
-    for (int j = low; j<=high-1; j++) {
-//        count++;
-        if (arr[j].emp_id<=pivot)  {//current element smaller than or equal to pivot
-            i++;
-            swap(&arr[i], &arr[j]); //swapping the 2 numbers
-        }
-    }
-    swap(&arr[i + 1], &arr[high]); //swapping (i+1)th and last element
-    return i+1;
-}
-
-void quickSort(employe arr[], int low, int high){
-    if(low<high){
-        //p specifies at which location to perform partition
-        int p = partition(arr, low, high);
-        quickSort(arr, low, p-1);
-        quickSort(arr, p+1, high);
-    }
-}
 
 
 int main() {
@@ -487,8 +459,8 @@ int main() {
             }
             break;
         case 'a':
-            std::cout<<"enter: ";
-            std::getline(std::cin,password);
+//            std::cout<<"enter: ";
+//            std::getline(std::cin,password);
             if(password == "admin")
             std::cout<<"Following functions are available: "<<std::endl;
             std::cout<<"1). Add data of new employee. "<<std::endl;
